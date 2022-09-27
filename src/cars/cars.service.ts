@@ -28,6 +28,6 @@ export class CarsService {
     }
 
     findById(id: number) {
-        return this.cars[id];
+        return this.cars.find(car => car.id == id);
     }
 }
