@@ -41,8 +41,7 @@ export class CarsService {
     create(createCarDTO: CreateCarDTO) {
         const newCar : Car = {
             id: uuid(),
-            brand: createCarDTO.brand,
-            model: createCarDTO.model
+            ...createCarDTO
         }
         this.cars.push(newCar);
         return newCar;
