@@ -2,6 +2,7 @@ import { Body, Controller, Delete, Get, Param, ParseIntPipe, ParseUUIDPipe, Patc
 import { identity } from 'rxjs';
 import { CarsService } from './cars.service';
 import { CreateCarDTO } from './dto/create-car.dto';
+import { UpdateCarDTO } from './dto/update-car.dto';
 
 @Controller('cars')
 @UsePipes(ValidationPipe)
@@ -27,8 +28,10 @@ export class CarsController {
     }
 
     @Patch(':id')
-    updateCar(@Param('id', ParseUUIDPipe) id: string, @Body() body: any) {
-        return body;
+    updateCar(
+        @Param('id', ParseUUIDPipe) id: string, 
+        @Body() updateCarDTO: UpdateCarDTO) {
+        return this.carsService.update(id, updateCarDTO);
     }
 
     @Delete(':id')
