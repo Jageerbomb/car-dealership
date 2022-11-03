@@ -6,25 +6,7 @@ import { Car } from './interfaces/cars.interface';
 @Injectable()
 export class CarsService {
 
-    private cars: Car[] = [
-        {
-            id: uuid(),
-            brand: 'Toyota',
-            model: 'Corolla'
-        },{
-            id: uuid(),
-            brand: 'Honda',
-            model: 'Civic'
-        },{
-            id: uuid(),
-            brand: 'Jeep',
-            model: 'Cherokee'
-        },{
-            id: uuid(),
-            brand: 'Kia',
-            model: 'Morning'
-        }
-    ];
+    private cars: Car[] = [];
 
     findAll(){
         return this.cars;
